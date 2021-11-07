@@ -3,10 +3,20 @@
   margin: auto;
   padding: 50px;
 }
-
+.light {
+  --nav-back: #364051;
+  --expense-details: #f7f7f7;
+  --expense-wrapper: white;
+}
+.dark {
+  --nav-back: black;
+  --text-colour: white;
+  --expense-details: rgb(32, 29, 29);
+  --expense-wrapper: rgb(43, 40, 40);
+}
 .navbar {
   height: 10vh;
-  background-color: #364051;
+  background-color: var(--nav-back);
   color: white;
 }
 
@@ -31,7 +41,8 @@
 /* Expense Details */
 .expensedetails {
   height: 250px;
-  background-color: #f7f7f7;
+  background-color: var(--expense-details);
+  color: var(--text-colour);
 }
 
 .expense-content h1 {
@@ -49,6 +60,11 @@
 }
 .expense-content .add-expense-btn:hover {
   cursor: pointer;
+}
+
+.ExpenseFilterForm {
+  background-color: var(--expense-wrapper);
+  color: var(--text-colour);
 }
 
 /* Filter form */
@@ -75,6 +91,11 @@
   padding: 0 10px;
   font-size: 18px;
 }
+.ExpenseWrapper {
+  background-color: var(--expense-wrapper);
+  color: var(--text-colour);
+  height: 50vh;
+}
 
 .expense-wrapper-heading {
   display: flex;
@@ -95,7 +116,7 @@
   justify-content: space-between;
   align-items: center;
   font-size: 24px;
-  color: #313131;
+  color: var(--text-colour);
   margin: 18px 0;
   border: 1px solid #ddd;
   padding: 15px;
@@ -109,7 +130,8 @@
   font: 8px;
 }
 .expenseheader {
-  background-color: #f7f7f7;
+  background-color: var(--expense-details);
+  color: var(--text-colour);
   width: 100%;
 }
 .expensecont {

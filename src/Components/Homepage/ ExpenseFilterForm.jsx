@@ -1,8 +1,11 @@
 import React, { Fragment } from "react";
+import { useContext } from "react";
+import { GlobalContext } from "../../Context/GlobalState";
 
 const ExpenseFilterForm = () => {
+  let {theme}=useContext(GlobalContext)
   return (
-    <div className="ExpenseFilterForm">
+    <div className={"ExpenseFilterForm " + theme}>
       <div className="container filter-content">
         <input
           type="text"

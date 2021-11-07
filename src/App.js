@@ -9,8 +9,8 @@ import GlobalState from "./Context/GlobalState";
 function App() {
   return (
     <Router>
-      <Navbar/>
       <GlobalState>
+      <Navbar/>
       <Switch>
         <Route exact={true} path='/' component={Homepage}/>
         <Route exact={true} path='/addexpense' component={AddExpense}/>

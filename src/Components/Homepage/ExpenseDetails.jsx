@@ -4,7 +4,7 @@ import { GlobalContext } from "../../Context/GlobalState";
 
 const ExpenseDetails = () => {
     let history=useHistory()
-    let {expenses}=useContext(GlobalContext)
+    let {expenses,theme}=useContext(GlobalContext)
     let amount
     const handleClick=()=>{
         history.push('/addexpense')
@@ -12,7 +12,7 @@ const ExpenseDetails = () => {
     amount = expenses.reduce((acc,item)=> acc+=Number(item.amount),0)
   return (
     <Fragment>
-      <div className="expensedetails">
+      <div className={"expensedetails "+theme}>
         <div className="container expense-content">
           <h1>Viewing {expenses.length} expenses totalling ${amount}</h1>
           <button className="add-expense-btn" onClick={handleClick}>Add Expense</button>

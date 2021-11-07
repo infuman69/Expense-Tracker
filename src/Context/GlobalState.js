@@ -4,7 +4,8 @@ import ExpenseReducer from './ExpenseReducer'
 
 
 const initialState={
-    expenses:[]
+    expenses:[],
+    theme:"light"
 }
 export const GlobalContext=createContext(initialState)
 
@@ -18,12 +19,21 @@ const GlobalState = ({children}) => {
       payload:data
     })
   }
+  const settheme=(toggle)=>{
+    dispatch({
+      type:'SET_THEME',
+      payload:toggle
+    })
+  }
 
     return (
         <GlobalContext.Provider
         value={{
             expenses:state.expenses,
-            addExpense
+            theme:state.theme,
+            class:state.class,
+            addExpense,
+            settheme,
         }}>
         
           {children}
