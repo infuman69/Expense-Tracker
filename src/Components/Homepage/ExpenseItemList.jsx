@@ -11,7 +11,7 @@ const ExpenseItemList = () => {
       <div className="container">
         <ul className="ExpenseItemList">
          {expenses.map((item,idx)=>{
-          return( <ExpenseListItem description={item.description} amount={item.amount} date={item.date}/>)
+          return( <ExpenseListItem key={idx} description={item.description} amount={item.amount} date={item.date} id={item.id}/> )
          })
          }</ul>
       </div>

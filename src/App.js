@@ -4,7 +4,7 @@ import Homepage from './Pages/Homepage/Homepage';
 import AddExpense from './Pages/AddExpense/AddExpense';
 import Navbar from './Core/Navbar';
 import GlobalState from "./Context/GlobalState";
-
+import Editform from './Pages/Edit/Editform';
 
 function App() {
   return (
@@ -14,6 +14,7 @@ function App() {
       <Switch>
         <Route exact={true} path='/' component={Homepage}/>
         <Route exact={true} path='/addexpense' component={AddExpense}/>
+        <Route exact={true} path='/edit/:id' component={AddExpense}/>
       </Switch>
       </GlobalState>
     </Router>
