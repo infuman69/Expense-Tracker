@@ -28,7 +28,11 @@ export default (state, action) => {
         }
       });
       return state;
-
+    case "CHANGE_TYPE":
+      return {
+        ...state,
+        settingstype: action.payload,
+      };
     default:
       return state;
   }
