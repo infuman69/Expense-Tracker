@@ -5,6 +5,7 @@ const initialState = {
   expenses: [],
   theme: "light",
   foundobj: null,
+  settingstype: "",
 };
 export const GlobalContext = createContext(initialState);
 
@@ -35,17 +36,24 @@ const GlobalState = ({ children }) => {
       payload: obj,
     });
   };
-
+  const changetype = (str) => {
+    dispatch({
+      type: "CHANGE_TYPE",
+      payload: str,
+    });
+  };
   return (
     <GlobalContext.Provider
       value={{
         expenses: state.expenses,
         theme: state.theme,
         foundobj: state.foundobj,
+        settingstype: state.settingstype,
         addExpense,
         settheme,
         extractitem,
         replacewithnew,
+        changetype,
       }}
     >
       {children}
