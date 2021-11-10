@@ -182,11 +182,13 @@
 /* Settings */
 .settings {
   width: 100%;
-  height: 600px;
+  height: 720px;
+  background-color: #364051;
 }
 .settings1 {
   width: 47%;
   margin: auto;
+  padding: 17px 0;
   display: flex;
   justify-content: space-between;
 }
@@ -194,9 +196,12 @@
   list-style: none;
   margin: 15px 0;
 }
+.settingsoptions h2 {
+  color: white;
+}
 .settingsoptions ul li {
   margin: 5px 0;
-  color: grey;
+  color: white;
   padding: 7px 12px;
   width: 141px;
   cursor: pointer;
@@ -204,10 +209,115 @@
 .settingsoptions h2 {
   margin-left: 10px;
 }
-
+.settings .options:hover {
+  background-color: rgb(93, 150, 204);
+  color: black !important;
+  border-radius: 100px 100px 100px 100px;
+  cursor: pointer;
+}
 .clicked {
   background-color: rgb(93, 150, 204);
   color: black !important;
   border-radius: 100px 100px 100px 100px;
   cursor: pointer;
+}
+.accountcard {
+  width: 71%;
+  background-color: #58657a;
+  padding: 40px 26px;
+  margin-top: 5px;
+  border-radius: 7px;
+  box-shadow: 0px 2px 9px -3px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 2px 9px -3px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 2px 9px -3px rgba(0, 0, 0, 0.75);
+  height: 15em;
+  color: rgb(238, 235, 235);
+}
+.accountcard h1 {
+  margin-bottom: 10px;
+  text-align: center;
+}
+.accinput {
+  display: block;
+  margin-top: 10px;
+  width: 40%;
+  height: 2.3rem;
+  padding: 0 10px;
+}
+.accountcard form label {
+  margin: 10px 0;
+  font-size: 20px;
+}
+.namebtn {
+  outline: none;
+  border: none;
+  background-color: #1c88bf;
+  padding: 8px 16px;
+  width: 160px;
+  height: 40px;
+  margin-top: 15px;
+  border-radius: 100px 100px 100px 100px;
+  font-size: 15px;
+  color: white;
+  cursor: pointer;
+}
+.namebtn:hover {
+  background-image: linear-gradient(
+    90deg,
+    #00c0ff 0%,
+    #ffcf00 49%,
+    #fc4f4f 80%,
+    #00c0ff 100%
+  );
+  animation: slidebg 5s linear infinite;
+}
+@keyframes slidebg {
+  to {
+    background-position: 20vw;
+  }
+}
+.appearcard {
+  width: 71%;
+  background-color: #58657a;
+  padding: 40px 26px;
+  margin-top: 5px;
+  border-radius: 7px;
+  box-shadow: 0px 2px 9px -3px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 2px 9px -3px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 2px 9px -3px rgba(0, 0, 0, 0.75);
+  height: 15em;
+  color: rgb(238, 235, 235);
+}
+.themescont {
+  margin-top: 1.9rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+}
+.appearlab {
+  margin: 10px 0;
+  display: block;
+  font-size: 20px;
+}
+.Blue {
+  width: 100px;
+  background-color: rgb(98, 132, 224);
+  text-align: center;
+  padding: 10px;
+  border-radius: 7px;
+}
+.Green {
+  width: 125px;
+  background-color: rgb(80, 180, 85);
+  text-align: center;
+  padding: 10px;
+  border-radius: 7px;
+}
+.Purple {
+  width: 100px;
+  background-color: rgb(138, 85, 199);
+  text-align: center;
+  padding: 10px;
+  border-radius: 7px;
 }
