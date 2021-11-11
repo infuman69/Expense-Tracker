@@ -8,7 +8,14 @@ export default (state, action) => {
     case "SET_THEME":
       return {
         ...state,
-        theme: !action.payload ? "light" : "dark",
+        theme:
+          typeof action.payload === "boolean"
+            ? !action.payload
+              ? "light"
+              : "dark"
+            : typeof action.payload === "string"
+            ? action.payload
+            : "light",
       };
     case "EXTRACT_ITEM":
       return {
