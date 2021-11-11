@@ -15,7 +15,6 @@ const Navbar = () => {
   const handleclick = () => {
     settoggle(!toggle);
     settheme(!toggle);
-    console.log(theme);
   };
   const handleSettings = () => {
     history.push("/settings");
