@@ -1,7 +1,8 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext, useEffect, Fragment } from "react";
 import { GlobalContext } from "../../Context/GlobalState";
 import { useHistory, useParams } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
+import Layout from "../UserSettings/Layout";
 
 const ExpenseForm = () => {
   let [data, setdata] = useState(null);
@@ -15,17 +16,26 @@ const ExpenseForm = () => {
   }, [foundobj]);
 
   let history = useHistory();
-  let { expenses, addExpense, theme, replacewithnew } =
+  let { expenses, addExpense, theme, replacewithnew, layouttype, addtodo } =
     useContext(GlobalContext);
-  let [formData, setFormData] = useState({
-    description: "",
+  let [formData, setFormData] = useState(
+    layouttype === "budget"
+      ? {
+          description: "",
 
-    amount: "",
-    date: "",
+          amount: "",
+          date: "",
 
-    note: "",
-    id: "",
-  });
+          note: "",
+          id: "",
+        }
+      : {
+          task: "",
+          date: "",
+          note: "",
+          id: "",
+        }
+  );
   useEffect(() => {
     if (data !== null || data !== undefined) {
       setFormData({ ...data });
@@ -40,7 +50,9 @@ const ExpenseForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (params.id === undefined) {
-      addExpense({ ...formData, id: uuidv4() });
+      layouttype === "budget"
+        ? addExpense({ ...formData, id: uuidv4() })
+        : addtodo({ ...formData, id: uuidv4() });
     } else {
       console.log(formData);
       replacewithnew(formData);
@@ -61,19 +73,23 @@ const ExpenseForm = () => {
         <input
           className="expenseinput"
           type="text"
-          placeholder="description"
-          name="description"
+          placeholder={layouttype === "budget" ? "description" : "task"}
+          name={layouttype === "budget" ? "description" : "task"}
           onChange={handleChange}
-          value={formData.description}
+          value={layouttype === "budget" ? formData.description : formData.task}
         />
-        <input
-          type="number"
-          className="expenseinput"
-          placeholder="Amount"
-          name="amount"
-          onChange={handleChange}
-          value={formData.amount}
-        />
+        {layouttype === "budget" ? (
+          <input
+            type="number"
+            className="expenseinput"
+            placeholder="Amount"
+            name="amount"
+            onChange={handleChange}
+            value={formData.amount}
+          />
+        ) : (
+          ""
+        )}
         <input
           className="expenseinput"
           type="date"
@@ -85,13 +101,18 @@ const ExpenseForm = () => {
           name="note"
           cols="30"
           rows="10"
-          placeholder="Add a note for your expense (optional)"
+          placeholder={
+            layouttype === "budget"
+              ? "Add a note for your expense"
+              : "Add a note for your todo"
+          }
           className="expenseinput textarea1"
           onChange={handleChange}
           value={formData.note}
         ></textarea>
+
         <button className="submitbtn" type="submit">
-          Save Expense
+          {layouttype === "budget" ? "Save Expense" : "Save Todo"}
         </button>
       </form>
     </div>

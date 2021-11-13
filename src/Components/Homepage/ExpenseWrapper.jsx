@@ -4,12 +4,12 @@ import { GlobalContext } from "../../Context/GlobalState";
 import { useContext } from "react";
 
 const ExpenseWrapper = () => {
-  let {theme}=useContext(GlobalContext)
+  let { theme, layouttype } = useContext(GlobalContext);
   return (
-    <div className={"ExpenseWrapper "+theme}>
+    <div className={"ExpenseWrapper " + theme}>
       <div className="container expense-wrapper-heading">
-        <h3>Expense</h3>
-        <h3>Amount</h3>
+        <h3>{layouttype === "budget" ? "Expense" : "Todo"}</h3>
+        <h3>{layouttype === "budget" ? "Amount" : "Note"}</h3>
       </div>
 
       <ExpenseItemList />

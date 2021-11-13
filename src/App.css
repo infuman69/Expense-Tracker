@@ -10,6 +10,8 @@
   --expense-form: white;
   --expense-wrapper-head: #666;
   --expense-item-border: #ddd;
+  --clicked: rgb(93, 150, 204);
+  --card: #58657a;
 }
 .dark {
   --nav-back: black;
@@ -19,6 +21,8 @@
   --expense-form: var(--nav-back);
   --expense-wrapper-head: #666;
   --expense-item-border: #ddd;
+  --clicked: rgb(165, 116, 42);
+  --card: var(--clicked);
 }
 .Purple {
   --nav-back: #3e065f;
@@ -26,6 +30,8 @@
   --expense-wrapper: #8e05c2;
   --expense-item-border: var(--nav-back);
   --expense-form: var(--expense-wrapper);
+  --clicked: var(--expense-details);
+  --card: var(--clicked);
 }
 .Blue {
   --nav-back: #193498;
@@ -33,12 +39,16 @@
   --expense-wrapper: #1597e5;
   --expense-item-border: #69dadb;
   --expense-form: var(--expense-wrapper);
+  --clicked: var(--expense-details);
+  --card: var(--clicked);
 }
 .Green {
   --nav-back: #80ed99;
   --expense-details: #2fdd92;
   --expense-wrapper: #38a3a5;
   --expense-form: var(--expense-wrapper);
+  --clicked: var(--expense-details);
+  --card: var(--clicked);
 }
 .navbar {
   height: 10vh;
@@ -207,7 +217,7 @@
 .settings {
   width: 100%;
   height: 720px;
-  background-color: #364051;
+  background-color: var(--nav-back);
 }
 .settings1 {
   width: 47%;
@@ -234,20 +244,20 @@
   margin-left: 10px;
 }
 .settings .options:hover {
-  background-color: rgb(93, 150, 204);
+  background-color: var(--clicked);
   color: black !important;
   border-radius: 100px 100px 100px 100px;
   cursor: pointer;
 }
 .clicked {
-  background-color: rgb(93, 150, 204);
+  background-color: var(--clicked);
   color: black !important;
   border-radius: 100px 100px 100px 100px;
   cursor: pointer;
 }
 .accountcard {
   width: 71%;
-  background-color: #58657a;
+  background-color: var(--card);
   padding: 40px 26px;
   margin-top: 5px;
   border-radius: 7px;
@@ -302,7 +312,7 @@
 }
 .appearcard {
   width: 71%;
-  background-color: #58657a;
+  background-color: var(--card);
   padding: 40px 26px;
   margin-top: 5px;
   border-radius: 7px;
@@ -311,6 +321,24 @@
   -moz-box-shadow: 0px 2px 9px -3px rgba(0, 0, 0, 0.75);
   height: 15em;
   color: rgb(238, 235, 235);
+}
+.layoutcard {
+  width: 74%;
+  background-color: var(--card);
+  padding: 40px 26px;
+  margin-top: 5px;
+  border-radius: 7px;
+  box-shadow: 0px 2px 9px -3px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 2px 9px -3px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 2px 9px -3px rgba(0, 0, 0, 0.75);
+  height: 23em;
+  color: rgb(238, 235, 235);
+}
+.layopt {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 3rem 0;
 }
 .themescont {
   margin-top: 1.9rem;
@@ -347,4 +375,30 @@
   padding: 10px;
   border-radius: 7px;
   cursor: pointer;
+}
+.selected {
+  border: 1px solid rgba(42, 136, 223, 0.719);
+}
+.layopts {
+  border: 1px solid white;
+  border-radius: 4px;
+}
+.layopts:hover {
+  border: 1px solid black;
+  cursor: pointer;
+}
+.budgetimg {
+  height: 78.5%;
+  width: 200px;
+  border-bottom: 4px;
+}
+.layhead {
+  text-align: center;
+  margin: 10px 0;
+}
+.layoutcard h1 {
+  text-align: center;
+}
+.focu {
+  border: 1px solid black;
 }

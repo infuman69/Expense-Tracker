@@ -3,13 +3,15 @@ import { useContext } from "react";
 import { GlobalContext } from "../../Context/GlobalState";
 
 const ExpenseFilterForm = () => {
-  let {theme}=useContext(GlobalContext)
+  let { theme, layouttype } = useContext(GlobalContext);
   return (
     <div className={"ExpenseFilterForm " + theme}>
       <div className="container filter-content">
         <input
           type="text"
-          placeholder="Search Expenses"
+          placeholder={
+            layouttype === "budget" ? "Search Expense" : "Search Todos"
+          }
           name="searchInput"
           autocomplete="off"
         />
