@@ -5,7 +5,7 @@ import { GlobalContext } from "../../Context/GlobalState";
 const ExpenseDetails = () => {
   let history = useHistory();
   let amount;
-  let { expenses, theme } = useContext(GlobalContext);
+  let { expenses, theme, layouttype, todo } = useContext(GlobalContext);
   const handleClick = () => {
     history.push("/addexpense");
   };
@@ -15,10 +15,12 @@ const ExpenseDetails = () => {
       <div className={"expensedetails " + theme}>
         <div className="container expense-content">
           <h1>
-            Viewing {expenses.length} expenses totalling {amount}
+            Viewing {layouttype === "budget" ? expenses.length : todo.length}{" "}
+            {layouttype === "budget" ? "Expenses" : "todos"} totalling{" "}
+            {layouttype === "budget" ? amount : ""}
           </h1>
           <button className="add-expense-btn" onClick={handleClick}>
-            Add Expense
+            {layouttype === "budget" ? "Add Expense" : "Add Todo"}
           </button>
         </div>
       </div>

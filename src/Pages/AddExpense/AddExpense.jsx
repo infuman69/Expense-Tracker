@@ -6,11 +6,18 @@ import { GlobalContext } from "../../Context/GlobalState";
 
 const AddExpense = () => {
   let params = useParams();
+  let { layouttype } = useContext(GlobalContext);
   return (
     <Fragment>
-      <Expenseheader
-        formheader={params.id === undefined ? "Add Expense" : "Edit Expense"}
-      />
+      {layouttype === "budget" ? (
+        <Expenseheader
+          formheader={params.id === undefined ? "Add Expense" : "Edit Expense"}
+        />
+      ) : (
+        <Expenseheader
+          formheader={params.id === undefined ? "Add Todo" : "Edit Todo"}
+        />
+      )}
       <ExpenseForm />
     </Fragment>
   );

@@ -4,6 +4,14 @@ import { GlobalContext } from "../../Context/GlobalState";
 const Apperance = () => {
   let { theme, settheme } = useContext(GlobalContext);
   const handletheme = (e) => {
+    let ulchild = e.target.parentElement.children;
+
+    for (let i = 0; i < ulchild.length; i++) {
+      if (ulchild[i].classList.contains("selected")) {
+        ulchild[i].classList.remove("selected");
+      }
+    }
+    e.target.classList.add("selected");
     settheme(e.target.textContent.trim());
     console.log(theme);
   };

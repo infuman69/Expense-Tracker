@@ -11,7 +11,7 @@ const Navbar = () => {
     history.push("/");
   };
   let [toggle, settoggle] = useState(false);
-  let { theme, settheme } = useContext(GlobalContext);
+  let { theme, settheme, layouttype } = useContext(GlobalContext);
   const handleclick = () => {
     settoggle(!toggle);
     settheme(!toggle);
@@ -19,10 +19,13 @@ const Navbar = () => {
   const handleSettings = () => {
     history.push("/settings");
   };
+  console.log(layouttype);
   return (
     <div className={"navbar " + theme}>
       <div className="container navbar-wrapper">
-        <h1 onClick={handleClick}>Budget App</h1>
+        <h1 onClick={handleClick}>
+          {layouttype === "budget" ? "Budget App" : "Todo App"}
+        </h1>
         <div className="icons">
           <span className="theme">
             {!toggle ? (
