@@ -56,6 +56,24 @@ const ExpenseForm = () => {
       toast.error("Enter all fields");
       return;
     }
+    if (layouttype === "budget") {
+      if (Object.keys(formData).length < 4) {
+        toast.error("Please Complete all the fields");
+        return;
+      } else if (
+        !Object.values(formData).every(
+          (item) => item !== "" && item.trim() !== ""
+        )
+      ) {
+        toast.error("Please Complete all the fields");
+        return;
+      }
+    } else {
+      if (Object.keys(formData).length < 3) {
+        toast.error("Please Complete all the fields");
+        return;
+      }
+    }
     if (params.id === undefined) {
       layouttype === "budget"
         ? addExpense({ ...formData, id: uuidv4() })
@@ -71,7 +89,20 @@ const ExpenseForm = () => {
       date: "",
       note: "",
     });
-    toast("Expense added successfully");
+
+    if (layouttype === "budget") {
+      if (params.id === undefined) {
+        toast("Expense added Successfully");
+      } else {
+        toast("Expense edited Successfully");
+      }
+    } else {
+      if (params.id === undefined) {
+        toast("Todo added Successfully");
+      } else {
+        toast("Todo edited Successfully");
+      }
+    }
     history.push("/");
   };
 
