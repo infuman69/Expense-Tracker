@@ -3,6 +3,8 @@ import { GlobalContext } from "../../Context/GlobalState";
 import { useHistory, useParams } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import Layout from "../UserSettings/Layout";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const ExpenseForm = () => {
   let [data, setdata] = useState(null);
@@ -49,6 +51,11 @@ const ExpenseForm = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(formData);
+    if (Object.keys(formData).length === 0) {
+      toast.error("Enter all fields");
+      return;
+    }
     if (params.id === undefined) {
       layouttype === "budget"
         ? addExpense({ ...formData, id: uuidv4() })
@@ -64,6 +71,7 @@ const ExpenseForm = () => {
       date: "",
       note: "",
     });
+    toast("Expense added successfully");
     history.push("/");
   };
 
@@ -114,6 +122,7 @@ const ExpenseForm = () => {
         <button className="submitbtn" type="submit">
           {layouttype === "budget" ? "Save Expense" : "Save Todo"}
         </button>
+        <ToastContainer />
       </form>
     </div>
   );

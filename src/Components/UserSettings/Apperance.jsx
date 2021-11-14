@@ -1,5 +1,7 @@
 import React, { useContext } from "react";
 import { GlobalContext } from "../../Context/GlobalState";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Apperance = () => {
   let { theme, settheme } = useContext(GlobalContext);
@@ -13,6 +15,7 @@ const Apperance = () => {
     }
     e.target.classList.add("selected");
     settheme(e.target.textContent.trim());
+    toast(`${e.target.textContent.trim()} theme applied`);
     console.log(theme);
   };
   return (
