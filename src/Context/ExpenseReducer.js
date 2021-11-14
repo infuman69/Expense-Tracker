@@ -64,6 +64,22 @@ export default (state, action) => {
         ...state,
         todo: [...state.todo, action.payload],
       };
+    case "DEL_TODO":
+      return {
+        ...state,
+        todo: state.todo.filter((item) => item.id !== action.payload),
+      };
+    case "DEL_EXPENSE":
+      return {
+        ...state,
+        expenses: state.expenses.filter((item) => item.id !== action.payload),
+      };
+    case "CHANGE_USER":
+      return {
+        ...state,
+        userName: action.payload,
+      };
+
     default:
       return state;
   }

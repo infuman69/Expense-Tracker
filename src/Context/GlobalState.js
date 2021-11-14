@@ -8,6 +8,7 @@ const initialState = {
   settingstype: "",
   layouttype: "budget",
   todo: [],
+  userName: "Soham",
 };
 export const GlobalContext = createContext(initialState);
 
@@ -56,6 +57,25 @@ const GlobalState = ({ children }) => {
       payload: data,
     });
   };
+  const deltodo = (id) => {
+    dispatch({
+      type: "DEL_TODO",
+      payload: id,
+    });
+  };
+  const delexpense = (id) => {
+    dispatch({
+      type: "DEL_EXPENSE",
+      payload: id,
+    });
+  };
+  const accname = (name) => {
+    dispatch({
+      type: "CHANGE_USER",
+      payload: name,
+    });
+  };
+
   return (
     <GlobalContext.Provider
       value={{
@@ -65,6 +85,7 @@ const GlobalState = ({ children }) => {
         foundobj: state.foundobj,
         settingstype: state.settingstype,
         layouttype: state.layouttype,
+        userName: state.userName,
         addExpense,
         settheme,
         extractitem,
@@ -72,6 +93,9 @@ const GlobalState = ({ children }) => {
         changetype,
         setlayout,
         addtodo,
+        deltodo,
+        delexpense,
+        accname,
       }}
     >
       {children}

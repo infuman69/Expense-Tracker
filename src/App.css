@@ -73,7 +73,11 @@
 .navbar .navbar-wrapper h3 {
   cursor: pointer;
 }
-
+.icons {
+  display: flex;
+  align-items: center;
+  width: 26%;
+}
 /* Expense Details */
 .expensedetails {
   height: 250px;
