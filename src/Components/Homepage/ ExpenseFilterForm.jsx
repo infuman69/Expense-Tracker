@@ -3,7 +3,12 @@ import { useContext } from "react";
 import { GlobalContext } from "../../Context/GlobalState";
 
 const ExpenseFilterForm = () => {
-  let { theme, layouttype } = useContext(GlobalContext);
+  let { theme, layouttype, changesorttype, sorttype } =
+    useContext(GlobalContext);
+  const getsorttype = (e) => {
+    console.log(e.target.value);
+  };
+
   return (
     <div className={"ExpenseFilterForm " + theme}>
       <div className="container filter-content">
@@ -15,12 +20,25 @@ const ExpenseFilterForm = () => {
           name="searchInput"
           autocomplete="off"
         />
-        <select name="filterDropdown" className="filter-dropdown">
-          <option value="1" selected>
-            Date
-          </option>
-          <option value="2">Amount</option>
-        </select>
+        {layouttype === "budget" ? (
+          <select
+            name="filterDropdown"
+            className="filter-dropdown"
+            onChange={(e) => getsorttype(e)}
+          >
+            <option value="filterDate" selected>
+              Date
+            </option>
+            <option value="filterAmount">Amount</option>
+          </select>
+        ) : (
+          <select name="filterDropdown" className="filter-dropdown">
+            <option value="filterTask" selected>
+              task
+            </option>
+            <option value="filterDate">Date</option>
+          </select>
+        )}
         <h1>Date Picker</h1>
       </div>
     </div>

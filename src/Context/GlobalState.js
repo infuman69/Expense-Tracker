@@ -9,6 +9,7 @@ const initialState = {
   layouttype: "budget",
   todo: [],
   userName: "Soham",
+  sorttype: "",
 };
 export const GlobalContext = createContext(initialState);
 
@@ -75,6 +76,12 @@ const GlobalState = ({ children }) => {
       payload: name,
     });
   };
+  const changesorttype = (str) => {
+    dispatch({
+      type: "SORT_TYPE",
+      payload: str,
+    });
+  };
 
   return (
     <GlobalContext.Provider
@@ -86,6 +93,7 @@ const GlobalState = ({ children }) => {
         settingstype: state.settingstype,
         layouttype: state.layouttype,
         userName: state.userName,
+        sorttype: state.sorttype,
         addExpense,
         settheme,
         extractitem,
@@ -96,6 +104,7 @@ const GlobalState = ({ children }) => {
         deltodo,
         delexpense,
         accname,
+        changesorttype,
       }}
     >
       {children}
